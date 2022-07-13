@@ -2,9 +2,10 @@
   "name": "matches",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tuckconsultingclub.host.dartmouth.edu/",
+  "homepage": "https://scheduler.tuckconsultingclub.host.dartmouth.edu/",
   "dependencies": {
     "axios": "^0.26.1",
+    "date-fns": "^2.28.0",
     "moment": "^2.29.4",
     "react": "^17.0.2",
     "react-datepicker": "^4.7.0",
