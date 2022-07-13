@@ -2,7 +2,7 @@ import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { registerLocale, setDefaultLocale } from "react-datepicker";
-import es from "date-fns/locale/en-us";
+import es from "@date-io/date-fns/locale/en-us";
 import { addDays, addMinutes } from "date-fns";
 import { components } from "react-select";
 import { colourOptions } from "./Data.js";
