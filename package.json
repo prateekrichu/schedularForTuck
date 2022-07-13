@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://scheduler.tuckconsultingclub.host.dartmouth.edu/",
   "dependencies": {
+    "@date-io/date-fns": "^2.14.0",
     "axios": "^0.26.1",
     "date-fns": "^2.28.0",
     "moment": "^2.29.4",
