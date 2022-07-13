@@ -1,0 +1,170 @@
+$fontsize: 180px;
+ 
+
+.ui{
+    &.button{
+        margin: 1%;
+        &.schedule{
+            position: absolute;
+            align-content: center;
+            left: 45%;
+            
+        }
+        &.top{
+            &.right{
+                position: absolute;
+                top:0;
+                right: 0;
+            }
+        }
+    }
+
+}
+.tuck_image{
+    height: 20%;
+    width: 20%;
+}
+ 
+.text{
+    &.red{
+        color: red;
+   
+    }
+    &.center{
+        margin-top: 5%;
+        text-align: center;
+    }
+}
+ 
+form {
+    align-items: center;
+    margin-top: 10%;
+    margin-left: 30%;
+    margin-right: 30%;
+ 
+    .spinner{
+        position: absolute;
+        left: 45%;
+    }
+    .form-input-control-radio{
+        width: 5%;
+    }
+
+    .error{
+        color: red;
+        text-align: center;
+        padding: 10px;
+    }
+    .success{
+        color: green;
+        text-align: center;
+        padding: 10px;
+    }
+    table {
+       
+        width: 100%;
+        border-spacing: 0;
+      }
+      tr{
+          &.ui.bold.full{
+            font-weight: bold;
+            width: 100%;
+          }
+      }
+      th {
+        border-bottom: 1px solid black;
+        border: 1px solid;
+        &.collapse {
+            width: 0.0000000001%;
+          }
+      }
+      td {
+        text-align: center;
+        border: 1px solid;
+      }
+   
+.ui{
+ &.calender{
+     width: 50%;
+     margin-bottom: 5%;
+ }
+ &.bold{
+     font-weight: bold;
+     &.full{
+         width: 100%;
+     }
+ }
+ &.normal{
+     font-weight: lighter;
+ }
+ .cal{
+     &.icon{
+       
+            position: absolute;
+ 
+     }
+ }
+}
+    .text{
+        &.red{
+            color: red;
+        }
+        &.center{
+            margin-left: 30%;
+        }
+    }
+ 
+    h2{
+        text-align:center;
+    }
+    .ui_button{
+        position: relative;
+        margin-left: 43%;
+        margin-top: 5%;
+        text-align:center;
+    }
+    input{
+        width: 100%;
+        &::placeholder{
+            text-align:center;
+        }
+    }
+    label{
+        text-align: left;
+        font-weight: bold;
+    }
+    .form-group{
+        padding: 2%;
+    }
+    .ui{
+        &.button{
+            margin: 1%;
+            &.schedule{
+                position: relative;
+                align-content: center;
+                left: 45%;
+                
+            }
+            &.show{
+                position: relative;
+                align-content: center;
+                left:39%;
+                margin-top: 3%;
+                &.aval{
+                    left: 36%;
+                }
+            }
+            &.top{
+                &.right{
+                    position: absolute;
+                    top:0;
+                    right: 0;
+                }
+            }
+        }
+
+    }
+    p{
+        text-align: center;
+    }
+}
