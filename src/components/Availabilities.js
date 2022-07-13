@@ -2,7 +2,7 @@ import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { registerLocale, setDefaultLocale } from "react-datepicker";
-import es from "@date-io/date-fns/locale/en-us";
+import { enUS } from "date-fns/esm/locale";
 import { addDays, addMinutes } from "date-fns";
 import { components } from "react-select";
 import { colourOptions } from "./Data.js";
@@ -31,7 +31,7 @@ export default class Availabilities extends React.Component {
     var d = new Date();
     d.setDate(d.getDate() + (((1 + 7 - d.getDay()) % 7) || 7));
     console.log(d);
-    registerLocale("en-us", es);
+    registerLocale("en-us", enUS);
     setDefaultLocale("en-us");
     this.state = {
       userName: "",
