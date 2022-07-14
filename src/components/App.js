@@ -6,6 +6,7 @@ import AdminPage from "./AdminPage";
 import ForgotPassword from "./ForgotPassword";
 import Route from "./Route";
 import pic from "../download.png";
+import { backendData } from "./Data.js";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -30,11 +31,11 @@ export default class App extends React.Component {
       password: this.state.password,
     };
     const headers = {
-      "Access-Control-Allow-Origin": "http://localhost:8080",
+      "Access-Control-Allow-Origin":  backendData.URL ,
     };
 
     try {
-      const response = await axios.post("http://localhost:8080/login", body, {
+      const response = await axios.post(`${backendData.URL}/login`, body, {
         headers,
       });
       console.log(response);

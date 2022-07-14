@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import moment from 'moment';
+import { backendData } from "./Data.js";
 
 export default class Profile extends React.Component {
   constructor(props) {
@@ -58,11 +59,11 @@ export default class Profile extends React.Component {
       endDate: e.endDate,
     };
     const headers = {
-      "Access-Control-Allow-Origin": "http://localhost:8080",
+      "Access-Control-Allow-Origin": backendData.URL,
     };
     try {
       const response = await axios.post(
-        "http://localhost:8080/delete-availability",
+        `${backendData.URL}/delete-availability`,
         body,
         {
           headers,
@@ -96,11 +97,11 @@ export default class Profile extends React.Component {
       caseName : this.state.caseName
     };
     const headers = {
-      "Access-Control-Allow-Origin": "http://localhost:8080",
+      "Access-Control-Allow-Origin": backendData.URL,
     };
 
     try {
-      const response = await axios.post("http://localhost:8080/edit-profile", body, {
+      const response = await axios.post(`${backendData.URL}/edit-profile`, body, {
         headers,
       });
       console.log(response);

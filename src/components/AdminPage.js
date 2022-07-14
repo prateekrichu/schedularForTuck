@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Spinner from "react-spinkit";
+import { backendData } from "./Data.js";
 
 export default class Availabilities extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ export default class Availabilities extends React.Component {
   }
   async handleScheduleClick() {
     this.setState({ loading: true, errorMessage: "", successMessage: "" });
-    let url = `http://localhost:8080/schedule/${this.state.userName}`;
+    let url = `${backendData.URL}/schedule/${this.state.userName}`;
     try {
       const response = await axios.get(url, {
         headers: {

@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { backendData } from "./Data.js";
  
 export default class Signup extends React.Component {
   constructor(props) {
@@ -29,11 +30,11 @@ export default class Signup extends React.Component {
       caseName : this.state.caseName
     };
     const headers = {
-      "Access-Control-Allow-Origin": "http://localhost:8080",
+      "Access-Control-Allow-Origin": backendData.URL,
     };
 
     try {
-      const response = await axios.post("http://localhost:8080/sign-up", body, {
+      const response = await axios.post(`${backendData.URL}/sign-up`, body, {
         headers,
       });
       console.log(response);

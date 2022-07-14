@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Spinner from "react-spinkit";
+import { backendData } from "./Data";
 
 class ForgotPassword extends React.Component {
   constructor(props) {
@@ -15,14 +16,14 @@ class ForgotPassword extends React.Component {
     };
   }
   async handleResetChange() {
-    const url = "http://localhost:8080/reset-password";
+    const url = `${backendData.URL}/reset-password`;
     const body = {
       userName: this.state.userName,
       password: this.state.password,
       otp: this.state.otp,
     };
     const headers = {
-      "Access-Control-Allow-Origin": "http://localhost:8080",
+      "Access-Control-Allow-Origin": backendData.URL,
     };
     try {
       const response = await axios.post(url, body, {
@@ -54,7 +55,7 @@ class ForgotPassword extends React.Component {
       return null;
     }
     try {
-      const url = `http://localhost:8080/generate-otp/${this.state.userName}`;
+      const url = `${backendData.URL}/generate-otp/${this.state.userName}`;
       const response = await axios.get(url);
       console.log(response);
       this.setState({ loading: false, errorMessage: "" });

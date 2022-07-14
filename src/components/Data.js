@@ -10,3 +10,8 @@ export const colourOptions = [
     { value: "slate", label: "Slate" },
     { value: "silver", label: "Silver" }
   ];
+
+
+  export const backendData = {
+    URL:'http://localhost:8080',
+  }

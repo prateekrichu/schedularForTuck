@@ -5,7 +5,7 @@ import { registerLocale, setDefaultLocale } from "react-datepicker";
 import { enUS } from "date-fns/esm/locale";
 import { addDays, addMinutes } from "date-fns";
 import { components } from "react-select";
-import { colourOptions } from "./Data.js";
+import { colourOptions , backendData} from "./Data.js";
 import { default as ReactSelect } from "react-select";
 import axios from "axios";
 import Profile from "./Profile.js";
@@ -64,7 +64,7 @@ export default class Availabilities extends React.Component {
   }
 
   async getUserDetails() {
-    let url = `http://localhost:8080/get-user-details/${this.props.userName}`;
+    let url = `${backendData.URL}/get-user-details/${this.props.userName}`;
 
     try {
       const response = await axios.get(url, {
@@ -121,12 +121,12 @@ export default class Availabilities extends React.Component {
       options: option,
     };
     const headers = {
-      "Access-Control-Allow-Origin": "http://localhost:8080",
+      "Access-Control-Allow-Origin": backendData.URL,
     };
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/availabilities",
+        `${backendData.URL}/availabilities`,
         body,
         {
           headers,
