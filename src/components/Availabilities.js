@@ -190,6 +190,7 @@ export default class Availabilities extends React.Component {
           />
           <label>Available Till</label>
           <label className="text red">*</label>
+          {this.state.MentorOrMentee=='Mentee'?
           <DatePicker
             className="ui calender"
             locale="en-us"
@@ -208,7 +209,7 @@ export default class Availabilities extends React.Component {
                 successMessage: "",
               })
             }
-          />
+          />:null}
         </div>
         <div className="form-group">
           <label>Type Of Cases</label>
