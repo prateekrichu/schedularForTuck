@@ -190,7 +190,7 @@ export default class Availabilities extends React.Component {
           />
           <label>Available Till</label>
           <label className="text red">*</label>
-          {this.state.MentorOrMentee=='Mentee'?
+          {this.state.MentorOrMentee==='Mentee'?
           <DatePicker
             className="ui calender"
             locale="en-us"
