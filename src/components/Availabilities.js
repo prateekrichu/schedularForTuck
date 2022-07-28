@@ -5,7 +5,7 @@ import { registerLocale, setDefaultLocale } from "react-datepicker";
 import { enUS } from "date-fns/esm/locale";
 import { addDays, addMinutes } from "date-fns";
 import { components } from "react-select";
-import { colourOptions , backendData} from "./Data.js";
+import { colourOptions, backendData } from "./Data.js";
 import { default as ReactSelect } from "react-select";
 import axios from "axios";
 import Profile from "./Profile.js";
@@ -29,7 +29,7 @@ export default class Availabilities extends React.Component {
   constructor(props) {
     super(props);
     var d = new Date();
-    d.setDate(d.getDate() + (((1 + 7 - d.getDay()) % 7) || 7));
+    d.setDate(d.getDate() + ((1 + 7 - d.getDay()) % 7 || 7));
     console.log(d);
     registerLocale("en-us", enUS);
     setDefaultLocale("en-us");
@@ -40,7 +40,7 @@ export default class Availabilities extends React.Component {
       interFirm: "",
       fullTmOffer: "",
       MentorOrMentee: "Mentee",
-      startDate:d,
+      startDate: d,
       optionSelected: [],
       data: {},
       errorMessage: "",
@@ -48,11 +48,10 @@ export default class Availabilities extends React.Component {
       endDate: addMinutes(d, 45),
       caseName: "",
       openAvalabilityPage: false,
-      availabilitys:[]
+      availabilitys: [],
     };
     this.showAvailability = this.showAvailability.bind(this);
     this.getUserDetails = this.getUserDetails.bind(this);
-
   }
 
   componentDidMount() {
@@ -81,7 +80,7 @@ export default class Availabilities extends React.Component {
         fullTmOffer: response.data.fullTmOffer,
         MentorOrMentee: response.data.isMentor ? "Mentor" : "Mentee",
         caseName: response.data.caseName,
-        availabilitys:response.data.availabilitys,
+        availabilitys: response.data.availabilitys,
       });
     } catch (e) {
       console.log(e);
@@ -161,7 +160,7 @@ export default class Availabilities extends React.Component {
 
   renderDateParams() {
     var d = new Date();
-    d.setDate(d.getDate() + (((1 + 7 - d.getDay()) % 7) || 7));
+    d.setDate(d.getDate() + ((1 + 7 - d.getDay()) % 7 || 7));
     console.log(d);
     return (
       <div>
@@ -188,28 +187,31 @@ export default class Availabilities extends React.Component {
               })
             }
           />
-          <label>Available Till</label>
-          <label className="text red">*</label>
-          {this.state.MentorOrMentee==='Mentee'?
-          <DatePicker
-            className="ui calender"
-            locale="en-us"
-            showTimeSelect
-            timeFormat="HH:mm"
-            timeIntervals={15}
-            timeCaption="time"
-            dateFormat="MMMM d, yyyy h:mm aa"
-            minDate={d}
-            maxDate={addDays(d, 6)}
-            selected={this.state.endDate}
-            onChange={(date) =>
-              this.setState({
-                endDate: date,
-                errorMessage: "",
-                successMessage: "",
-              })
-            }
-          />:null}
+          {this.state.MentorOrMentee === "Mentee" ? (
+            <div>
+              <label>Available Till</label>
+              <label className="text red">*</label>
+              <DatePicker
+                className="ui calender"
+                locale="en-us"
+                showTimeSelect
+                timeFormat="HH:mm"
+                timeIntervals={15}
+                timeCaption="time"
+                dateFormat="MMMM d, yyyy h:mm aa"
+                minDate={d}
+                maxDate={addDays(d, 6)}
+                selected={this.state.endDate}
+                onChange={(date) =>
+                  this.setState({
+                    endDate: date,
+                    errorMessage: "",
+                    successMessage: "",
+                  })
+                }
+              />
+            </div>
+          ) : null}
         </div>
         <div className="form-group">
           <label>Type Of Cases</label>
@@ -241,14 +243,14 @@ export default class Availabilities extends React.Component {
         >
           Submit
         </button>
-        <br/>
+        <br />
         <button
-            className="ui button show"
-            type="submit"
-            onClick={(e) => this.showProfile()}
-          >
-            Show Profile
-          </button>
+          className="ui button show"
+          type="submit"
+          onClick={(e) => this.showProfile()}
+        >
+          Show Profile
+        </button>
         <div className="error">
           {this.state.errorMessage && this.state.errorMessage !== ""
             ? this.state.errorMessage
@@ -265,7 +267,6 @@ export default class Availabilities extends React.Component {
   showProfile() {
     this.getUserDetails();
     this.setState({ openAvalabilityPage: false });
-    
   }
 
   renderAvalailityOrProfie() {
@@ -277,7 +278,6 @@ export default class Availabilities extends React.Component {
           </h2>
           {this.renderMentorForm()}
           {this.renderMenteeForm()}
-          
         </form>
       );
     } else {

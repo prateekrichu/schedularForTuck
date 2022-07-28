@@ -227,12 +227,14 @@ export default class Profile extends React.Component {
         <tr>
           <th>From</th>
           <th>Till</th>
+          <th>Cases Seletcted</th>
         </tr>
         {this.props.availabilitys.map((val, key) => {
           return (
             <tr key={key}>
               <td>{moment(val.startDate).format('MM-DD-YYYY hh:mm a')}</td>
               <td>{moment(val.endDate).format('MM-DD-YYYY hh:mm a')}</td>
+              <td>{val.caseName}</td>
               <td style={{border:'none'}}><button onClick={e=> this.updateAvailability(val)}>delete</button></td>
             </tr>
           )
