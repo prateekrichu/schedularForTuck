@@ -38,10 +38,10 @@ export default class App extends React.Component {
       const response = await axios.post(`${backendData.URL}/login`, body, {
         headers,
       });
-      console.log(response);
+      // console.log(response);
       this.setState({ openPage: response.data.openPage, isAdmin:response.data.isAdmin, errorMessage:"" });
     } catch (e) {
-      console.log(e);
+      // console.log(e);
       if(e && e.response && e.response.data ){
         this.setState({ errorMessage: e.response.data.message });
         
@@ -113,7 +113,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div>
         <img className="tuck_image" src={pic} alt="Tuck School of Business" />

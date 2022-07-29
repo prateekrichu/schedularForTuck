@@ -30,7 +30,7 @@ export default class Availabilities extends React.Component {
     super(props);
     var d = new Date();
     d.setDate(d.getDate() + ((1 + 7 - d.getDay()) % 7 || 7));
-    console.log(d);
+    // console.log(d);
     registerLocale("en-us", enUS);
     setDefaultLocale("en-us");
     this.state = {
@@ -71,7 +71,7 @@ export default class Availabilities extends React.Component {
           password: this.props.password,
         },
       });
-      console.log(response);
+      // console.log(response);
       this.setState({
         userName: response.data.userName,
         password: response.data.password,
@@ -83,7 +83,7 @@ export default class Availabilities extends React.Component {
         availabilitys: response.data.availabilitys,
       });
     } catch (e) {
-      console.log(e);
+      // console.log(e);
       if (e && e.response && e.response.data) {
         this.setState({
           errorMessage: e.response.data.message,
@@ -131,10 +131,10 @@ export default class Availabilities extends React.Component {
           headers,
         }
       );
-      console.log(response);
+      // console.log(response);
       this.setState({ successMessage: response.data, errorMessage: "" });
     } catch (e) {
-      console.log(e);
+      // console.log(e);
       if (e && e.response && e.response.data) {
         this.setState({
           errorMessage: e.response.data.message,
@@ -161,7 +161,7 @@ export default class Availabilities extends React.Component {
   renderDateParams() {
     var d = new Date();
     d.setDate(d.getDate() + ((1 + 7 - d.getDay()) % 7 || 7));
-    console.log(d);
+    // console.log(d);
     return (
       <div>
         <div className="form-group">
@@ -319,7 +319,7 @@ export default class Availabilities extends React.Component {
     if (this.props.openPage === false) {
       return null;
     }
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div>
         <button

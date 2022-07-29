@@ -48,7 +48,7 @@ export default class Profile extends React.Component {
   }
 
   async updateAvailability(e){
-    console.log(e);
+    // console.log(e);
     const body = {
       userName: this.state.userName,
       password: this.state.password,
@@ -70,11 +70,11 @@ export default class Profile extends React.Component {
           headers,
         }
       );
-      console.log(response);
+      // console.log(response);
       this.setState({ successMessage: response.data, errorMessage: "" });
       this.props.getUserDetails();
     } catch (e) {
-      console.log(e);
+      // console.log(e);
       if (e && e.response && e.response.data) {
         this.setState({
           errorMessage: e.response.data.message,
@@ -105,10 +105,10 @@ export default class Profile extends React.Component {
       const response = await axios.post(`${backendData.URL}/edit-profile`, body, {
         headers,
       });
-      console.log(response);
+      // console.log(response);
       this.setState({  successMessage: response.data });
     } catch (e) {
-      console.log(e);
+      // console.log(e);
       if(e && e.response && e.response.data ){
         this.setState({ errorMessage: e.response.data.message, successMessage:"" });
         
@@ -167,8 +167,8 @@ export default class Profile extends React.Component {
   }
 
   render() {
-    console.log(this.state);
-    console.log(this.props);
+    // console.log(this.state);
+    // console.log(this.props);
     return (
       <form className="ui form" onSubmit={(e) => e.preventDefault()}>
         <h2 className="ui header">Profile {this.state.MentorOrMentee}</h2>

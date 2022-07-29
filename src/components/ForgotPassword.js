@@ -29,10 +29,10 @@ class ForgotPassword extends React.Component {
       const response = await axios.post(url, body, {
         headers,
       });
-      console.log(response);
+      // console.log(response);
       this.setState({ successMessage: response.data, errorMessage: "" });
     } catch (e) {
-      console.log(e);
+      // console.log(e);
       if (e && e.response && e.response.data) {
         this.setState({
           errorMessage: e.response.data.message,
@@ -60,7 +60,7 @@ class ForgotPassword extends React.Component {
       console.log(response);
       this.setState({ loading: false, errorMessage: "" });
     } catch (e) {
-      console.log(e);
+      // console.log(e);
       if (e && e.response && e.response.data) {
         this.setState({
           loading: false,
@@ -184,7 +184,7 @@ class ForgotPassword extends React.Component {
   }
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <form className="ui form" onSubmit={(e) => e.preventDefault()}>
         {this.login()}

@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { backendData } from "./Data.js";
+import Spinner from "react-spinkit";
  
 export default class Signup extends React.Component {
   constructor(props) {
@@ -14,11 +15,13 @@ export default class Signup extends React.Component {
       caseName:"",
       MentorOrMentee: "",
       errorMessage:"",
-      successMessage:""
+      successMessage:"",
+      loading:false
     };
   }
 
   async handleSubmit(){
+    this.setState({loading:true, errorMessage: "", successMessage: "" });
     const body = {
       userName: this.state.userName,
       password: this.state.password,
@@ -37,21 +40,22 @@ export default class Signup extends React.Component {
       const response = await axios.post(`${backendData.URL}/sign-up`, body, {
         headers,
       });
-      console.log(response);
+      // console.log(response);
       this.setState({ successMessage: response.data, errorMessage:"" , userName: "",
       password: "",
       name: "",
       interFirm: "",
       fullTmOffer: ""
       ,caseName:""
+      ,loading:false
   });
     } catch (e) {
-      console.log(e);
+      // console.log(e);
       if(e && e.response && e.response.data ){
-        this.setState({ errorMessage: e.response.data.message, successMessage:"" });
+        this.setState({ errorMessage: e.response.data.message, successMessage:"" ,loading:false});
         
       }else{
-        this.setState({ errorMessage: e.message, successMessage:"" });
+        this.setState({ errorMessage: e.message, successMessage:"" ,loading:false});
       }
       
     }
@@ -179,7 +183,19 @@ export default class Signup extends React.Component {
   }
  
   render() {
-    console.log(this.state);
+    // console.log(this.state);
+    if (this.state.loading) {
+      return (
+        <div>
+          <Spinner
+            className="spinner"
+            name="wave"
+            color="coral"
+            style={{ width: 100, height: 100}}
+          />
+        </div>
+      );
+    }
     return (
       <div>
         {/* <img className="tuck_image" src={pic} alt="Tuck School of Business" /> */}
