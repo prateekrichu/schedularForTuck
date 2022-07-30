@@ -7,6 +7,7 @@ import ForgotPassword from "./ForgotPassword";
 import Route from "./Route";
 import pic from "../download.png";
 import { backendData } from "./Data.js";
+import Spinner from "react-spinkit";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -16,7 +17,8 @@ export default class App extends React.Component {
       password: "",
       openPage: false,
       errorMessage: "",
-      isAdmin:false
+      isAdmin:false,
+      loading:false
     };
     this.logout = this.logout.bind(this);
   }
@@ -26,6 +28,7 @@ export default class App extends React.Component {
   }
 
   async handleChange() {
+    this.setState({loading:true, errorMessage:""});
     const body = {
       userName: this.state.userName,
       password: this.state.password,
@@ -39,19 +42,31 @@ export default class App extends React.Component {
         headers,
       });
       // console.log(response);
-      this.setState({ openPage: response.data.openPage, isAdmin:response.data.isAdmin, errorMessage:"" });
+      this.setState({ openPage: response.data.openPage, isAdmin:response.data.isAdmin, errorMessage:"", loading:false });
     } catch (e) {
       // console.log(e);
       if(e && e.response && e.response.data ){
-        this.setState({ errorMessage: e.response.data.message });
+        this.setState({ errorMessage: e.response.data.message, loading:false });
         
       }else{
-        this.setState({ errorMessage: e.message });
+        this.setState({ errorMessage: e.message, loading:false });
       }
       
     }
   }
   login() {
+    if (this.state.loading) {
+      return (
+        <div>
+          <Spinner
+            className="spinner"
+            name="wave"
+            color="coral"
+            style={{ width: 100, height: 100}}
+          />
+        </div>
+      );
+    }
     if (this.state.openPage) {
       return null;
     }
