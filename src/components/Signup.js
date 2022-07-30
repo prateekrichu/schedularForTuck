@@ -53,10 +53,10 @@ export default class Signup extends React.Component {
     } catch (e) {
       // console.log(e);
       if(e && e.response && e.response.data ){
-        this.setState({ errorMessage: e.response.data.message, successMessage:"" ,loading:false,MentorOrMentee: ""});
+        this.setState({ errorMessage: e.response.data.message, successMessage:"" ,loading:false});
         
       }else{
-        this.setState({ errorMessage: e.message, successMessage:"" ,loading:false,MentorOrMentee: ""});
+        this.setState({ errorMessage: e.message, successMessage:"" ,loading:false});
       }
       
     }
