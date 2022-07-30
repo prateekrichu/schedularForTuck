@@ -28,6 +28,10 @@ export default class App extends React.Component {
   }
 
   async handleChange() {
+    if(this.state.userName==="" || this.state.password===""){
+      this.setState({errorMessage:"Username or Password cannot be empty!"});
+      return null;
+    }
     this.setState({loading:true, errorMessage:""});
     const body = {
       userName: this.state.userName,
