@@ -46,7 +46,8 @@ export default class App extends React.Component {
         headers,
       });
       // console.log(response);
-      this.setState({ openPage: response.data.openPage, isAdmin:response.data.isAdmin, errorMessage:"", loading:false });
+      this.setState({ openPage: response.data.openPage, isAdmin:response.data.isAdmin
+        , errorMessage:"", loading:false });
     } catch (e) {
       // console.log(e);
       if(e && e.response && e.response.data ){
