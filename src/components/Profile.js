@@ -126,15 +126,15 @@ export default class Profile extends React.Component {
       return (
         <div>
           <div className="form-group ui bold">
-            Internship Firm Name:{" "}
+            Internship firm name:{" "}
             <div className="ui normal">{this.state.interFirm}</div>
           </div>
           <div className="form-group">
-            <label>Edit Full time offer with</label>
+            <label>Full time offer firm name</label>
             <input
               type="OfferFirm"
               className="form-input-control-OfferFirm"
-              placeholder="Enter Full time offer with"
+              placeholder="Enter name of the firm you are joining full time"
               value={this.state.fullTmOffer}
               onChange={(e) =>
                 this.setState({
@@ -146,7 +146,7 @@ export default class Profile extends React.Component {
             />
           </div>
           <div className="form-group">
-            <label>Edit Case Name/s</label>
+            <label>List of available case/s (name)</label>
             <input
               type="caseName"
               className="form-input-control-caseName"
@@ -171,7 +171,7 @@ export default class Profile extends React.Component {
     // console.log(this.props);
     return (
       <form className="ui form" onSubmit={(e) => e.preventDefault()}>
-        <h2 className="ui header">Profile {this.state.MentorOrMentee}</h2>
+        <h2 className="ui header">{this.state.MentorOrMentee} profile</h2>
         <div className="form-group ui bold">
           Email address: <div className="ui normal">{this.state.userName}</div>
         </div>
@@ -209,7 +209,7 @@ export default class Profile extends React.Component {
           type="submit"
           onClick={this.props.showAvailability}
         >
-          Register Availability
+          Register availability
         </button>
         <div className="error">
           {this.state.errorMessage && this.state.errorMessage !== ""
@@ -221,7 +221,7 @@ export default class Profile extends React.Component {
             ? this.state.successMessage
             : ""}
         </div>
-        <p className="ui bold">Selected avalabilities</p>
+        <p className="ui bold">Selected availabilities</p>
         <table>
           
         <tr>

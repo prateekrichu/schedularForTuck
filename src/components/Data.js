@@ -1,14 +1,10 @@
 export const colourOptions = [
-    { value: "ocean1", label: "Ocean" },
-    { value: "blue", label: "Blue" },
-    { value: "purple", label: "Purple" },
-    { value: "red", label: "Red" },
-    { value: "orange", label: "Orange" },
-    { value: "yellow", label: "Yellow" },
-    { value: "green", label: "Green" },
-    { value: "forest", label: "Forest" },
-    { value: "slate", label: "Slate" },
-    { value: "silver", label: "Silver" }
+    { value: "profitability", label: "Profitability" },
+    { value: "market_entry", label: "Market entry" },
+    { value: "performance_improvement", label: "Performance improvement/ Cost reduction" },
+    { value: "mna", label: "M&A" },
+    { value: "private_equity", label: "Private equity" },
+    { value: "Growth_strategy", label: "Growth strategy/ Revenue enhancement" },
   ];
 
 

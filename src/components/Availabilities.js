@@ -107,7 +107,7 @@ export default class Availabilities extends React.Component {
     //   this.setState({ errorMessage: "Please select an option and try again!" });
     //   return null;
     // }
-    const option = this.state.optionSelected.map((obj) => obj.value);
+    const option = this.state.optionSelected.map((obj) => obj.label);
     const body = {
       userName: this.state.userName,
       password: this.state.password,
@@ -165,7 +165,7 @@ export default class Availabilities extends React.Component {
     return (
       <div>
         <div className="form-group">
-          <label>Available From</label>
+          <label>Available from (submit again for multiple)</label>
           <label className="text red">*</label>
           <DatePicker
             className="ui calender"
@@ -189,7 +189,7 @@ export default class Availabilities extends React.Component {
           />
           {this.state.MentorOrMentee === "Mentee" ? (
             <div>
-              <label>Available Till</label>
+              <label>Available till</label>
               <label className="text red">*</label>
               <DatePicker
                 className="ui calender"
@@ -214,7 +214,7 @@ export default class Availabilities extends React.Component {
           ) : null}
         </div>
         <div className="form-group">
-          <label>Type Of Cases</label>
+          <label>Select the type of cases you want to practice (subject to availability)</label>
           {/* <label className="text red">*</label> */}
           <span
             className="d-inline-block"

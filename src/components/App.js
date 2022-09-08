@@ -80,7 +80,7 @@ export default class App extends React.Component {
     }
     return (
       <form className="ui form" onSubmit={(e) => e.preventDefault()}>
-        <h2 className="ui header">Sign In</h2>
+        <h2 className="ui header">Sign in</h2>
         <div className="equal width fields">
           <div className="form-group">
             <label>Email address</label>

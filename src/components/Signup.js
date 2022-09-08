@@ -53,10 +53,10 @@ export default class Signup extends React.Component {
     } catch (e) {
       // console.log(e);
       if(e && e.response && e.response.data ){
-        this.setState({ errorMessage: e.response.data.message, successMessage:"" ,loading:false});
+        this.setState({ errorMessage: e.response.data.message, successMessage:"" ,loading:false,MentorOrMentee: ""});
         
       }else{
-        this.setState({ errorMessage: e.message, successMessage:"" ,loading:false});
+        this.setState({ errorMessage: e.message, successMessage:"" ,loading:false,MentorOrMentee: ""});
       }
       
     }
@@ -65,7 +65,7 @@ export default class Signup extends React.Component {
   radioSelectorMenteMentor() {
     return (
       <form className="ui form" onSubmit={(e) => e.preventDefault()}>
-        <h2 className="ui header">Sign Up</h2>
+        <h2 className="ui header">Sign up</h2>
         <input
           className="form-input-control-radio"
           type="radio"
@@ -148,28 +148,28 @@ export default class Signup extends React.Component {
       return (
         <div>
           <div className="form-group">
-            <label>Enter Internship Firm Name</label>
+            <label>Internship firm</label>
             <label className="text red">*</label>
             <input
               type="internshipFirm"
               className="form-input-control-internshipFirm"
-              placeholder="Enter Internship Firm Name"
+              placeholder="Enter name of the firm you interned with"
               value={this.state.interFirm}
               onChange={(e) => this.setState({ interFirm: e.target.value , errorMessage:"", successMessage:""})}
             />
           </div>
           <div className="form-group">
-            <label>Enter Full time offer with</label>
+            <label>Full time firm</label>
             <input
               type="OfferFirm"
               className="form-input-control-OfferFirm"
-              placeholder="Enter Full time offer with"
+              placeholder="Enter name of the firm you are joining full time"
               value={this.state.fullTmOffer}
               onChange={(e) => this.setState({ fullTmOffer: e.target.value, errorMessage:"", successMessage:"" })}
             />
           </div>
           <div className="form-group">
-            <label>Case Name/s</label>
+            <label>List of available case/s (name)</label>
             <input
               type="caseName"
               className="form-input-control-caseName"
