@@ -165,7 +165,7 @@ export default class Availabilities extends React.Component {
     return (
       <div>
         <div className="form-group">
-          <label>Available from (submit again for multiple)</label>
+        <label>{this.state.MentorOrMentee === "Mentee"?"Available from (submit again for multiple):":"Available time slots (submit again for multiple):"}</label>
           <label className="text red">*</label>
           <DatePicker
             className="ui calender"
@@ -189,7 +189,7 @@ export default class Availabilities extends React.Component {
           />
           {this.state.MentorOrMentee === "Mentee" ? (
             <div>
-              <label>Available till</label>
+              <label>Available till:</label>
               <label className="text red">*</label>
               <DatePicker
                 className="ui calender"
@@ -214,7 +214,7 @@ export default class Availabilities extends React.Component {
           ) : null}
         </div>
         <div className="form-group">
-          <label>Select the type of cases you want to practice (subject to availability)</label>
+          <label>{this.state.MentorOrMentee === "Mentee"?"Select the type of case you want to practice (please select one; subject to availability):":"Select the type of case/s available:"}</label>
           {/* <label className="text red">*</label> */}
           <span
             className="d-inline-block"
@@ -249,7 +249,7 @@ export default class Availabilities extends React.Component {
           type="submit"
           onClick={(e) => this.showProfile()}
         >
-          Show Profile
+          Show profile
         </button>
         <div className="error">
           {this.state.errorMessage && this.state.errorMessage !== ""

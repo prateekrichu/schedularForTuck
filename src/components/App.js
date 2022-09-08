@@ -60,6 +60,7 @@ export default class App extends React.Component {
     }
   }
   login() {
+   
     if (this.state.loading) {
       return (
         <div>
@@ -79,6 +80,10 @@ export default class App extends React.Component {
       return null;
     }
     return (
+      <div>
+         <div className="ui button top right">
+          Developed by: Prateek Sharma (TP23) and Dipinty Ghosal (T23)</div>
+      
       <form className="ui form" onSubmit={(e) => e.preventDefault()}>
         <h2 className="ui header">Sign in</h2>
         <div className="equal width fields">
@@ -129,6 +134,7 @@ export default class App extends React.Component {
           </a>
         </p>
       </form>
+      </div>
     );
   }
 
@@ -154,6 +160,8 @@ export default class App extends React.Component {
         password={this.state.password}
         logout={this.logout}
         /> : null}
+        
+        
       </div>
     );
   }

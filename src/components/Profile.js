@@ -130,7 +130,7 @@ export default class Profile extends React.Component {
             <div className="ui normal">{this.state.interFirm}</div>
           </div>
           <div className="form-group">
-            <label>Full time offer firm name</label>
+            <label>Full time offer firm name:</label>
             <input
               type="OfferFirm"
               className="form-input-control-OfferFirm"
@@ -146,7 +146,7 @@ export default class Profile extends React.Component {
             />
           </div>
           <div className="form-group">
-            <label>List of available case/s (name)</label>
+            <label>List of available case/s (name):</label>
             <input
               type="caseName"
               className="form-input-control-caseName"
@@ -176,7 +176,7 @@ export default class Profile extends React.Component {
           Email address: <div className="ui normal">{this.state.userName}</div>
         </div>
         <div className="form-group">
-          <label>Password</label>
+          <label>Password:</label>
           <label className="text red">*</label>
           <input
             type="password"
@@ -227,7 +227,7 @@ export default class Profile extends React.Component {
         <tr>
           <th>From</th>
           <th>Till</th>
-          <th>Cases Seletcted</th>
+          <th>Cases selected</th>
         </tr>
         {this.props.availabilitys.map((val, key) => {
           return (
