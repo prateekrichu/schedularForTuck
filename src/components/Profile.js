@@ -17,6 +17,7 @@ export default class Profile extends React.Component {
       errorMessage: "",
       successMessage: "",
       caseName: "",
+      officeLoc:""
     };
   }
 
@@ -29,6 +30,7 @@ export default class Profile extends React.Component {
       fullTmOffer: this.props.fullTmOffer,
       MentorOrMentee: this.props.MentorOrMentee,
       caseName: this.props.caseName,
+      officeLoc:this.props.officeLoc
     });
     
   }
@@ -43,6 +45,7 @@ export default class Profile extends React.Component {
         fullTmOffer: this.props.fullTmOffer,
         MentorOrMentee: this.props.MentorOrMentee,
         caseName: this.props.caseName,
+        officeLoc:this.props.officeLoc
       });
     }
   }
@@ -95,7 +98,8 @@ export default class Profile extends React.Component {
       fullTmOffer:this.state.fullTmOffer,
       isMentor:this.state.MentorOrMentee==="Mentor",
       numberOfMatches:0,
-      caseName : this.state.caseName
+      caseName : this.state.caseName,
+      officeLoc:this.state.officeLoc
     };
     const headers = {
       "Access-Control-Allow-Origin": backendData.URL,
@@ -143,6 +147,16 @@ export default class Profile extends React.Component {
                   successMessage: "",
                 })
               }
+            />
+          </div>
+          <div className="form-group">
+            <label>Office Location</label>
+            <input
+              type="OfficeLoc"
+              className="form-input-control-office-loc"
+              placeholder="Enter the firm location you are joining full time"
+              value={this.state.officeLoc}
+              onChange={(e) => this.setState({ officeLoc: e.target.value, errorMessage:"", successMessage:"" })}
             />
           </div>
           <div className="form-group">

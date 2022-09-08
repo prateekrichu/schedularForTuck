@@ -16,6 +16,7 @@ export default class Signup extends React.Component {
       MentorOrMentee: "",
       errorMessage:"",
       successMessage:"",
+      officeLoc:"",
       loading:false
     };
   }
@@ -30,7 +31,8 @@ export default class Signup extends React.Component {
       fullTmOffer:this.state.fullTmOffer,
       isMentor:this.state.MentorOrMentee==="Mentor",
       numberOfMatches:0,
-      caseName : this.state.caseName
+      caseName : this.state.caseName,
+      officeLoc:this.state.officeLoc,
     };
     const headers = {
       "Access-Control-Allow-Origin": backendData.URL,
@@ -48,6 +50,7 @@ export default class Signup extends React.Component {
       fullTmOffer: ""
       ,caseName:""
       ,loading:false
+      ,officeLoc:""
       ,MentorOrMentee: ""
   });
     } catch (e) {
@@ -166,6 +169,16 @@ export default class Signup extends React.Component {
               placeholder="Enter name of the firm you are joining full time"
               value={this.state.fullTmOffer}
               onChange={(e) => this.setState({ fullTmOffer: e.target.value, errorMessage:"", successMessage:"" })}
+            />
+          </div>
+          <div className="form-group">
+            <label>Office Location</label>
+            <input
+              type="OfficeLoc"
+              className="form-input-control-office-loc"
+              placeholder="Enter the firm location you are joining full time"
+              value={this.state.officeLoc}
+              onChange={(e) => this.setState({ officeLoc: e.target.value, errorMessage:"", successMessage:"" })}
             />
           </div>
           <div className="form-group">

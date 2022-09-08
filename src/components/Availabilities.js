@@ -49,6 +49,7 @@ export default class Availabilities extends React.Component {
       caseName: "",
       openAvalabilityPage: false,
       availabilitys: [],
+      officeLoc:""
     };
     this.showAvailability = this.showAvailability.bind(this);
     this.getUserDetails = this.getUserDetails.bind(this);
@@ -81,6 +82,7 @@ export default class Availabilities extends React.Component {
         MentorOrMentee: response.data.isMentor ? "Mentor" : "Mentee",
         caseName: response.data.caseName,
         availabilitys: response.data.availabilitys,
+        officeLoc:response.data.officeLoc
       });
     } catch (e) {
       // console.log(e);
@@ -290,6 +292,7 @@ export default class Availabilities extends React.Component {
           fullTmOffer={this.state.fullTmOffer}
           MentorOrMentee={this.state.MentorOrMentee}
           caseName={this.state.caseName}
+          officeLoc={this.state.officeLoc}
           availabilitys={this.state.availabilitys}
           showAvailability={this.showAvailability}
           getUserDetails={this.getUserDetails}
