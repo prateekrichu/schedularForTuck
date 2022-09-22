@@ -17,28 +17,34 @@ export default class App extends React.Component {
       password: "",
       openPage: false,
       errorMessage: "",
-      isAdmin:false,
-      loading:false
+      isAdmin: false,
+      loading: false,
     };
     this.logout = this.logout.bind(this);
   }
 
-  logout(){
-    this.setState({openPage:false, userName:"", password:"", errorMessage:"", isAdmin:false});
+  logout() {
+    this.setState({
+      openPage: false,
+      userName: "",
+      password: "",
+      errorMessage: "",
+      isAdmin: false,
+    });
   }
 
   async handleChange() {
-    if(this.state.userName==="" || this.state.password===""){
-      this.setState({errorMessage:"Username or Password cannot be empty!"});
+    if (this.state.userName === "" || this.state.password === "") {
+      this.setState({ errorMessage: "Username or Password cannot be empty!" });
       return null;
     }
-    this.setState({loading:true, errorMessage:""});
+    this.setState({ loading: true, errorMessage: "" });
     const body = {
       userName: this.state.userName,
       password: this.state.password,
     };
     const headers = {
-      "Access-Control-Allow-Origin":  backendData.URL ,
+      "Access-Control-Allow-Origin": backendData.URL,
     };
 
     try {
@@ -46,21 +52,25 @@ export default class App extends React.Component {
         headers,
       });
       // console.log(response);
-      this.setState({ openPage: response.data.openPage, isAdmin:response.data.isAdmin
-        , errorMessage:"", loading:false });
+      this.setState({
+        openPage: response.data.openPage,
+        isAdmin: response.data.isAdmin,
+        errorMessage: "",
+        loading: false,
+      });
     } catch (e) {
       // console.log(e);
-      if(e && e.response && e.response.data ){
-        this.setState({ errorMessage: e.response.data.message, loading:false });
-        
-      }else{
-        this.setState({ errorMessage: e.message, loading:false });
+      if (e && e.response && e.response.data) {
+        this.setState({
+          errorMessage: e.response.data.message,
+          loading: false,
+        });
+      } else {
+        this.setState({ errorMessage: e.message, loading: false });
       }
-      
     }
   }
   login() {
-   
     if (this.state.loading) {
       return (
         <div>
@@ -68,7 +78,7 @@ export default class App extends React.Component {
             className="spinner"
             name="wave"
             color="coral"
-            style={{ width: 100, height: 100}}
+            style={{ width: 100, height: 100 }}
           />
         </div>
       );
@@ -81,59 +91,64 @@ export default class App extends React.Component {
     }
     return (
       <div>
-         <div className="ui button top right">
-          Developed by: Prateek Sharma (TP23) and Dipinty Ghosal (T23)</div>
-      
-      <form className="ui form" onSubmit={(e) => e.preventDefault()}>
-        <h2 className="ui header">Sign in</h2>
-        <div className="equal width fields">
-          <div className="form-group">
-            <label>Email address</label>
-            <input
-              type="email"
-              className="form-input-control-email"
-              placeholder="Enter email"
-              value={this.state.userName}
-              onChange={(e) => this.setState({ userName: e.target.value , errorMessage:""})}
-            />
-          </div>
+        <div className="ui button top right white" style={{color:"white"}}>
+          Developed by: Prateek Sharma (TP23) and Dipinty Ghosal (T23)
+        </div>
 
-          <div className="form-group">
-            <label>Password</label>
-            <input
-              type="password"
-              value={this.state.password}
-              className="form-input-control-password"
-              placeholder="Enter password"
-              onChange={(e) => this.setState({ password: e.target.value , errorMessage:""})}
-            />
+        <form className="ui form" onSubmit={(e) => e.preventDefault()}>
+          <h2 className="ui header">Sign in</h2>
+          <div className="equal width fields">
+            <div className="form-group">
+              <label >Email address</label>
+              <input
+                type="email"
+                className="form-input-control-email"
+                placeholder="Enter email"
+                value={this.state.userName}
+                onChange={(e) =>
+                  this.setState({ userName: e.target.value, errorMessage: "" })
+                }
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                value={this.state.password}
+                className="form-input-control-password"
+                placeholder="Enter password"
+                onChange={(e) =>
+                  this.setState({ password: e.target.value, errorMessage: "" })
+                }
+              />
+            </div>
           </div>
-        </div>
-        <button
-          type="submit"
-          className="ui_button"
-          onClick={(e) => this.handleChange(e)}
-        >
-          Submit
-        </button>
-        <div className="error">
-        {this.state.errorMessage && this.state.errorMessage !== "" ? (
-          this.state.errorMessage
-        ) : ""}
-        </div>
-        <p className="forgot-password text-left">
-          Forgot{" "}
-          <a href="/forgot-password" className="item">
-            Password
-          </a>
-        </p>
-        <p className="forgot-password text-right">
-          New User{" "}
-          <a href="/sign-up" className="item">
-            Signup
-          </a>
-        </p>
-      </form>
+          <button
+            type="submit"
+            className="ui_button"
+            onClick={(e) => this.handleChange(e)}
+          >
+            Submit
+          </button>
+          <div className="error">
+            {this.state.errorMessage && this.state.errorMessage !== ""
+              ? this.state.errorMessage
+              : ""}
+          </div>
+          <p className="forgot-password text-left">
+            Forgot{" "}
+            <a href="/forgot-password" className="item">
+              Password
+            </a>
+          </p>
+          <p className="forgot-password text-right">
+            New User{" "}
+            <a href="/sign-up" className="item">
+              Signup
+            </a>
+          </p>
+        </form>
       </div>
     );
   }
@@ -141,7 +156,13 @@ export default class App extends React.Component {
   render() {
     // console.log(this.state);
     return (
-      <div>
+      <div
+        style={{
+          backgroundImage: "url(/Tuckwinter.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center"
+        }}
+      >
         <img className="tuck_image" src={pic} alt="Tuck School of Business" />
         <Route path="/">{this.login()}</Route>
         <Route path="/forgot-password">
@@ -150,18 +171,20 @@ export default class App extends React.Component {
         <Route path="/sign-up">
           <Signup />
         </Route>
-        {this.state.openPage ? <Availabilities
-        userName={this.state.userName}
-        password={this.state.password}
-        logout={this.logout}
-        /> : null}
-        {this.state.isAdmin ? <AdminPage
-        userName={this.state.userName}
-        password={this.state.password}
-        logout={this.logout}
-        /> : null}
-        
-        
+        {this.state.openPage ? (
+          <Availabilities
+            userName={this.state.userName}
+            password={this.state.password}
+            logout={this.logout}
+          />
+        ) : null}
+        {this.state.isAdmin ? (
+          <AdminPage
+            userName={this.state.userName}
+            password={this.state.password}
+            logout={this.logout}
+          />
+        ) : null}
       </div>
     );
   }

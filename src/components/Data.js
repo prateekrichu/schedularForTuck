@@ -9,7 +9,7 @@ export const colourOptions = [
 
 
   export const backendData = {
-    URL:'https://tuck-schedular-backend.herokuapp.com',
-    // URL:'http://localhost:8080',
+    // URL:'https://tuck-schedular-backend.herokuapp.com',
+    URL:'http://localhost:8080',
 
   }
