@@ -156,13 +156,7 @@ export default class App extends React.Component {
   render() {
     // console.log(this.state);
     return (
-      <div
-        style={{
-          backgroundImage: "url(/Tuckwinter.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center"
-        }}
-      >
+      <div className="ui bg">
         <img className="tuck_image" src={pic} alt="Tuck School of Business" />
         <Route path="/">{this.login()}</Route>
         <Route path="/forgot-password">
