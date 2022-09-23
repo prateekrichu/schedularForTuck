@@ -222,7 +222,7 @@ export default class Availabilities extends React.Component {
             className="d-inline-block"
             data-toggle="popover"
             data-trigger="focus"
-            data-content="Please selecet account(s)"
+            data-content="Please select account(s)"
           >
             <ReactSelect
               options={colourOptions}

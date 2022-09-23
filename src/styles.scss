@@ -154,6 +154,10 @@ form {
         padding: 2%;
         padding-right: 5%;
     }
+    .d-inline-block{
+        color: black;
+       
+    }
     .ui{
         &.button{
             margin: 1%;
@@ -188,5 +192,10 @@ form {
     p{
         text-align: center;
         font-weight: bold;
+    }
+    &.react{
+        &.select{
+            color: black;
+        }
     }
 }
