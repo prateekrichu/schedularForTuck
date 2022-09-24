@@ -103,7 +103,7 @@ export default class Availabilities extends React.Component {
         <div className="text center">
           {this.state.loading
             ? null
-            : "Click on Schedule button for scheduling appoitments!"}
+            : "Click on Schedule button for scheduling appointments!"}
         </div>
       </div>
     );
