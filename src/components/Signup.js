@@ -3,6 +3,8 @@ import axios from "axios";
 import { backendData } from "./Data.js";
 import Spinner from "react-spinkit";
  
+
+
 export default class Signup extends React.Component {
   constructor(props) {
     super(props);
@@ -20,6 +22,8 @@ export default class Signup extends React.Component {
       loading:false
     };
   }
+
+
 
   async handleSubmit(){
     this.setState({loading:true, errorMessage: "", successMessage: "" });
@@ -210,8 +214,12 @@ export default class Signup extends React.Component {
         </div>
       );
     }
+    
     return (
       <div>
+        <a href="/" className="ui button top right" style={{color:"white", fontWeight:"bold"}}>
+              Home
+            </a>
         {/* <img className="tuck_image" src={pic} alt="Tuck School of Business" /> */}
         {this.radioSelectorMenteMentor()}
         <div className="text center">

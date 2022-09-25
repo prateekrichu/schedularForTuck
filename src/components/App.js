@@ -91,10 +91,9 @@ export default class App extends React.Component {
     }
     return (
       <div>
-        <div className="ui button top right white" style={{color:"white"}}>
+        <div className="ui button top right white" style={{color:"white", fontWeight:"bold"}}>
           Developed by: Prateek Sharma (TP23) and Dipinty Ghosal (T23)
         </div>
-
         <form className="ui form" onSubmit={(e) => e.preventDefault()}>
           <h2 className="ui header">Sign in</h2>
           <div className="equal width fields">
