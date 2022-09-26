@@ -68,14 +68,16 @@ form {
     }
 
     .error{
-        color: red;
+        color: rgb(217, 255, 0);
         text-align: center;
         padding: 10px;
+        font-weight: bolder;
     }
     .success{
         color: blue;
         text-align: center;
         padding: 10px;
+        font-weight: bolder;
     }
     table {
        
