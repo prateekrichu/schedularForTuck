@@ -333,6 +333,9 @@ export default class Availabilities extends React.Component {
           Logout
         </button>
         {this.renderAvalailityOrProfie()}
+        <div className="text center">
+          Please ensure that time entered is in Eastern Time(ET)
+        </div>
       </div>
     );
   }
