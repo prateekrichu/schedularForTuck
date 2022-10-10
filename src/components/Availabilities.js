@@ -167,7 +167,7 @@ export default class Availabilities extends React.Component {
     return (
       <div>
         <div className="form-group">
-        <label>{this.state.MentorOrMentee === "Mentee"?"Available from (submit again for multiple):":"Available time slots (submit again for multiple):"}</label>
+        <label>{this.state.MentorOrMentee === "Mentee"?"Available from in Eastern time (submit again for multiple):":"Available time slots in Eastern time (submit again for multiple):"}</label>
           <label className="text red">*</label>
           <DatePicker
             className="ui calender"
@@ -333,9 +333,9 @@ export default class Availabilities extends React.Component {
           Logout
         </button>
         {this.renderAvalailityOrProfie()}
-        <div className="text center">
+        {/* <div className="text center">
           Please ensure that time entered is in Eastern Time(ET)
-        </div>
+        </div> */}
       </div>
     );
   }
