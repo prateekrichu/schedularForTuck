@@ -216,7 +216,7 @@ export default class Signup extends React.Component {
     
     return (
       <div>
-        <a href="/" className="ui button top right" style={{color:"white", fontWeight:"bold"}}>
+        <a href="/" className="ui button top right" style={{color:"Black", fontWeight:"bolder", fontSize:"x-large"}}>
               Home
             </a>
         {/* <img className="tuck_image" src={pic} alt="Tuck School of Business" /> */}
