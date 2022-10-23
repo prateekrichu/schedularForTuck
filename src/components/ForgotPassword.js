@@ -186,9 +186,15 @@ class ForgotPassword extends React.Component {
   render() {
     // console.log(this.state);
     return (
-      <form className="ui form" onSubmit={(e) => e.preventDefault()}>
+      <div>
+        <a href="/" className="ui button top right" style={{color:"Green", fontWeight:"bolder", fontSize:"x-large"}}>
+              Home
+            </a>
+            <form className="ui form" onSubmit={(e) => e.preventDefault()}>
         {this.login()}
       </form>
+      </div>
+      
     );
   }
 }
