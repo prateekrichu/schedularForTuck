@@ -17,7 +17,8 @@ export default class Profile extends React.Component {
       errorMessage: "",
       successMessage: "",
       caseName: "",
-      officeLoc:""
+      officeLoc:"",
+      numberOfCases:"10"
     };
   }
 
@@ -30,7 +31,8 @@ export default class Profile extends React.Component {
       fullTmOffer: this.props.fullTmOffer,
       MentorOrMentee: this.props.MentorOrMentee,
       caseName: this.props.caseName,
-      officeLoc:this.props.officeLoc
+      officeLoc:this.props.officeLoc,
+      numberOfCases:this.props.numberOfCases
     });
     
   }
@@ -45,7 +47,8 @@ export default class Profile extends React.Component {
         fullTmOffer: this.props.fullTmOffer,
         MentorOrMentee: this.props.MentorOrMentee,
         caseName: this.props.caseName,
-        officeLoc:this.props.officeLoc
+        officeLoc:this.props.officeLoc,
+        numberOfCases:this.props.numberOfCases
       });
     }
   }
@@ -99,7 +102,8 @@ export default class Profile extends React.Component {
       isMentor:this.state.MentorOrMentee==="Mentor",
       numberOfMatches:0,
       caseName : this.state.caseName,
-      officeLoc:this.state.officeLoc
+      officeLoc:this.state.officeLoc,
+      numberOfCases:this.state.numberOfCases !==undefined ? this.state.numberOfCases : "5"
     };
     const headers = {
       "Access-Control-Allow-Origin": backendData.URL,
@@ -174,6 +178,24 @@ export default class Profile extends React.Component {
                 })
               }
             />
+          </div>
+          <div className="form-group">
+            <label>Number of cases per week:</label>
+            <select name="selectList" id="selectList"
+             value={this.state.numberOfCases} 
+             onChange={(e) => this.setState({ numberOfCases: e.target.value, errorMessage:"", successMessage:"" })}
+             >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option selected value="10">10</option>
+            </select>
           </div>
         </div>
       );
