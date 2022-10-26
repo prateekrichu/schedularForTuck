@@ -49,7 +49,7 @@ class ForgotPassword extends React.Component {
     if (this.state.userName === "") {
       this.setState({
         loading: false,
-        errorMessage: "Please enter a username!",
+        errorMessage: "Please enter EMAIL-ID!",
       });
 
       return null;

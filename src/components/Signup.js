@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { backendData } from "./Data.js";
 import Spinner from "react-spinkit";
- 
+
 
 
 export default class Signup extends React.Component {
@@ -14,29 +14,64 @@ export default class Signup extends React.Component {
       name: "",
       interFirm: "",
       fullTmOffer: "",
-      caseName:"",
+      caseName: "",
       MentorOrMentee: "",
-      errorMessage:"",
-      successMessage:"",
-      officeLoc:"",
-      loading:false
+      errorMessage: "",
+      successMessage: "",
+      officeLoc: "",
+      loading: false,
+      otp: ""
     };
+  }
+
+  async handleOtpChange() {
+    this.setState({ loading: true });
+    if (this.state.userName === "") {
+      this.setState({
+        loading: false,
+        errorMessage: "Please enter EMAIL-ID!",
+      });
+
+      return null;
+    }
+    try {
+      const url = `${backendData.URL}/generate-otp-sign-up/${this.state.userName}`;
+      const response = await axios.get(url);
+      console.log(response);
+      this.setState({ loading: false, errorMessage: "" });
+    } catch (e) {
+      // console.log(e);
+      if (e && e.response && e.response.data) {
+        this.setState({
+          loading: false,
+          errorMessage: e.response.data.message,
+          successMessage: "",
+        });
+      } else {
+        this.setState({
+          loading: false,
+          errorMessage: e.message,
+          successMessage: "",
+        });
+      }
+    }
   }
 
 
 
-  async handleSubmit(){
-    this.setState({loading:true, errorMessage: "", successMessage: "" });
+  async handleSubmit() {
+    this.setState({ loading: true, errorMessage: "", successMessage: "" });
     const body = {
       userName: this.state.userName,
       password: this.state.password,
-      name:this.state.name,
-      interFirm:this.state.interFirm,
-      fullTmOffer:this.state.fullTmOffer,
-      isMentor:this.state.MentorOrMentee==="Mentor",
-      numberOfMatches:0,
-      caseName : this.state.caseName,
-      officeLoc:this.state.officeLoc,
+      name: this.state.name,
+      interFirm: this.state.interFirm,
+      fullTmOffer: this.state.fullTmOffer,
+      isMentor: this.state.MentorOrMentee === "Mentor",
+      numberOfMatches: 0,
+      caseName: this.state.caseName,
+      officeLoc: this.state.officeLoc,
+      otp: this.state.otp,
     };
     const headers = {
       "Access-Control-Allow-Origin": backendData.URL,
@@ -47,27 +82,28 @@ export default class Signup extends React.Component {
         headers,
       });
       // console.log(response);
-      this.setState({ successMessage: response.data, errorMessage:"" , userName: "",
-      password: "",
-      name: "",
-      interFirm: "",
-      fullTmOffer: ""
-      ,caseName:""
-      ,loading:false
-      ,officeLoc:""
-  });
+      this.setState({
+        successMessage: response.data, errorMessage: "", userName: "",
+        password: "",
+        name: "",
+        interFirm: "",
+        fullTmOffer: ""
+        , caseName: ""
+        , loading: false
+        , officeLoc: ""
+      });
     } catch (e) {
       // console.log(e);
-      if(e && e.response && e.response.data ){
-        this.setState({ errorMessage: e.response.data.message, successMessage:"" ,loading:false});
-        
-      }else{
-        this.setState({ errorMessage: e.message, successMessage:"" ,loading:false});
+      if (e && e.response && e.response.data) {
+        this.setState({ errorMessage: e.response.data.message, successMessage: "", loading: false });
+
+      } else {
+        this.setState({ errorMessage: e.message, successMessage: "", loading: false });
       }
-      
+
     }
   }
- 
+
   radioSelectorMenteMentor() {
     return (
       <form className="ui form" onSubmit={(e) => e.preventDefault()}>
@@ -77,7 +113,7 @@ export default class Signup extends React.Component {
           type="radio"
           value="Mentor"
           name="selector"
-          onChange={(e) => this.setState({ MentorOrMentee: e.target.value, errorMessage:"", successMessage:"" })}
+          onChange={(e) => this.setState({ MentorOrMentee: e.target.value, errorMessage: "", successMessage: "" })}
         />{" "}
         Mentor
         <input
@@ -85,7 +121,7 @@ export default class Signup extends React.Component {
           type="radio"
           value="Mentee"
           name="selector"
-          onChange={(e) => this.setState({ MentorOrMentee: e.target.value, errorMessage:"", successMessage:"" })}
+          onChange={(e) => this.setState({ MentorOrMentee: e.target.value, errorMessage: "", successMessage: "" })}
         />{" "}
         Mentee
         {this.renderMenteeOrMentor()}
@@ -106,7 +142,7 @@ export default class Signup extends React.Component {
             className="form-input-control-email"
             placeholder="Enter email"
             value={this.state.userName}
-            onChange={(e) => this.setState({ userName: e.target.value , errorMessage:"", successMessage:""})}
+            onChange={(e) => this.setState({ userName: e.target.value, errorMessage: "", successMessage: "" })}
           />
         </div>
         <div className="form-group">
@@ -117,7 +153,7 @@ export default class Signup extends React.Component {
             value={this.state.password}
             className="form-input-control-password"
             placeholder="Enter password"
-            onChange={(e) => this.setState({ password: e.target.value , errorMessage:"", successMessage:""})}
+            onChange={(e) => this.setState({ password: e.target.value, errorMessage: "", successMessage: "" })}
           />
         </div>
         <div className="form-group">
@@ -128,13 +164,21 @@ export default class Signup extends React.Component {
             className="form-input-control-name"
             placeholder="Enter name"
             value={this.state.name}
-            onChange={(e) => this.setState({ name: e.target.value , errorMessage:"", successMessage:""})}
+            onChange={(e) => this.setState({ name: e.target.value, errorMessage: "", successMessage: "" })}
           />
         </div>
         {this.rendeMentor()}
-        <button type="submit" className="ui_button" onClick={e=> this.handleSubmit()}>
-          Submit
-        </button>
+        <div className="form-group">
+          <label>OTP</label>
+          <input
+            type="otp"
+            value={this.state.otp}
+            className="form-input-control-otp"
+            placeholder="Enter OTP"
+            onChange={(e) => this.setState({otp: e.target.value, errorMessage: "", successMessage: "" })}
+          />
+        </div>
+        {this.renderButton()}
         <div className="error">
           {this.state.errorMessage && this.state.errorMessage !== ""
             ? this.state.errorMessage
@@ -148,7 +192,32 @@ export default class Signup extends React.Component {
       </div>
     );
   }
- 
+
+  renderButton() {
+    if (this.state.otp === "") {
+      return (
+        <button
+          type="submit"
+          className="ui_button"
+          onClick={(e) => this.handleOtpChange(e)}
+        >
+          Genetrate OTP
+        </button>
+      );
+    }
+    if (this.state.otp !== "" && this.state.userName !== "") {
+      return (
+        <button
+          type="submit"
+          className="ui_button"
+          onClick={(e) => this.handleSubmit(e)}
+        >
+          Submit
+        </button>
+      );
+    }
+  }
+
   rendeMentor() {
     if (this.state.MentorOrMentee === "Mentor") {
       return (
@@ -161,7 +230,7 @@ export default class Signup extends React.Component {
               className="form-input-control-internshipFirm"
               placeholder="Enter name of the firm you interned with"
               value={this.state.interFirm}
-              onChange={(e) => this.setState({ interFirm: e.target.value , errorMessage:"", successMessage:""})}
+              onChange={(e) => this.setState({ interFirm: e.target.value, errorMessage: "", successMessage: "" })}
             />
           </div>
           <div className="form-group">
@@ -171,7 +240,7 @@ export default class Signup extends React.Component {
               className="form-input-control-OfferFirm"
               placeholder="Enter name of the firm you are joining full time"
               value={this.state.fullTmOffer}
-              onChange={(e) => this.setState({ fullTmOffer: e.target.value, errorMessage:"", successMessage:"" })}
+              onChange={(e) => this.setState({ fullTmOffer: e.target.value, errorMessage: "", successMessage: "" })}
             />
           </div>
           <div className="form-group">
@@ -181,7 +250,7 @@ export default class Signup extends React.Component {
               className="form-input-control-office-loc"
               placeholder="Enter the firm location you are joining full time"
               value={this.state.officeLoc}
-              onChange={(e) => this.setState({ officeLoc: e.target.value, errorMessage:"", successMessage:"" })}
+              onChange={(e) => this.setState({ officeLoc: e.target.value, errorMessage: "", successMessage: "" })}
             />
           </div>
           <div className="form-group">
@@ -191,14 +260,14 @@ export default class Signup extends React.Component {
               className="form-input-control-caseName"
               placeholder="Enter case name/s (Semi-colon seperated if more than one)"
               value={this.state.caseName}
-              onChange={(e) => this.setState({ caseName: e.target.value, errorMessage:"", successMessage:"" })}
+              onChange={(e) => this.setState({ caseName: e.target.value, errorMessage: "", successMessage: "" })}
             />
           </div>
         </div>
       );
     }
   }
- 
+
   render() {
     // console.log(this.state);
     if (this.state.loading) {
@@ -208,17 +277,17 @@ export default class Signup extends React.Component {
             className="spinner"
             name="wave"
             color="coral"
-            style={{ width: 100, height: 100}}
+            style={{ width: 100, height: 100 }}
           />
         </div>
       );
     }
-    
+
     return (
       <div>
-        <a href="/" className="ui button top right" style={{color:"Green", fontWeight:"bolder", fontSize:"x-large"}}>
-              Home
-            </a>
+        <a href="/" className="ui button top right" style={{ color: "Green", fontWeight: "bolder", fontSize: "x-large" }}>
+          Home
+        </a>
         {/* <img className="tuck_image" src={pic} alt="Tuck School of Business" /> */}
         {this.radioSelectorMenteMentor()}
         <div className="text center">
