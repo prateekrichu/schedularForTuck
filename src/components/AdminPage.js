@@ -190,9 +190,7 @@ export default class Availabilities extends React.Component {
       <td>Total</td>
       <td>{result}</td>
     </tr>)
-    if(this.state.users.length===0){
-      return null;
-    }
+    
     return (
       <div className="ui table">
         <h3>Users</h3>
