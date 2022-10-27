@@ -1,194 +1,249 @@
 $fontsize: 180px;
- 
 
-.ui{
-    &.bg{
-            background-image: url(/Tuck.jpeg);
-            min-height: 100%;
-            min-width: 1024px;
-            background-size: cover;
-            background-position: center;
-            width: 100%;
-            height: auto;
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            overflow: auto;
-            z-index: -100;
-            opacity: 50%;
-          }
-    &.button{
+
+.ui {
+    &.table{
+        background-color: beige;
+    }
+    &.bg {
+        background-image: url(/Tuck.jpeg);
+        min-height: 100%;
+        min-width: 1024px;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        overflow: auto;
+        z-index: -100;
+        opacity: 50%;
+    }
+
+    &.button {
         margin: 1%;
-        &.schedule{
+
+        &.schedule {
             position: absolute;
             align-content: center;
             left: 45%;
-            
+
         }
-        &.top{
-            &.right{
+
+        &.top {
+            &.right {
                 position: absolute;
-                top:0;
+                top: 0;
                 right: 0;
             }
         }
     }
 
 }
-.tuck_image{
+
+.tuck_image {
     height: 20%;
     width: 10%;
 }
- 
-.text{
-    &.red{
+
+.text {
+    &.red {
         color: red;
-   
+
     }
-    &.center{
+
+    &.center {
         margin-top: 5%;
         text-align: center;
         color: black;
         background-color: bisque;
     }
 }
- 
+
 form {
-    align-items: center;
-    margin-top: 10%;
-    margin-left: 30%;
-    margin-right: 30%;
-    background-color: rgba(0, 136, 0, 0.7);
-    color: white;
-    .spinner{
+    .spinner {
         position: absolute;
         left: 45%;
     }
-    .form-input-control-radio{
+
+    .form-input-control-radio {
         width: 5%;
     }
 
-    .error{
+    .error {
         color: rgb(217, 255, 0);
         text-align: center;
         padding: 10px;
         font-weight: bolder;
     }
-    .success{
+
+    .success {
         color: blue;
         text-align: center;
         padding: 10px;
         font-weight: bolder;
     }
+
     table {
-       
+
         width: 100%;
         border-spacing: 0;
-      }
-      tr{
-          &.ui.bold.full{
+    }
+
+    tr {
+        &.ui.bold.full {
             font-weight: bold;
             width: 100%;
-          }
-      }
-      th {
+        }
+    }
+
+    th {
         border-bottom: 1px solid black;
         border: 1px solid;
+
         &.collapse {
             width: 0.0000000001%;
-          }
-      }
-      td {
+        }
+    }
+
+    td {
         text-align: center;
         border: 1px solid;
-      }
-   
-.ui{
- &.calender{
-     width: 50%;
-     margin-bottom: 5%;
- }
- &.bold{
-     font-weight: bold;
-     &.full{
-         width: 100%;
-     }
- }
- &.normal{
-     font-weight: lighter;
- }
- .cal{
-     &.icon{
-       
-            position: absolute;
- 
-     }
- }
-}
-    .text{
-        &.red{
+    }
+
+    &.ui {
+        
+
+        &.form {
+            align-items: center;
+            margin-top: 10%;
+            margin-left: 30%;
+            margin-right: 30%;
+            background-color: rgba(0, 136, 0, 0.7);
+            color: white;
+        }
+
+        &.calender {
+            width: 50%;
+            margin-bottom: 5%;
+        }
+
+        &.admin {
+            width: fit-content;
+            margin-top: 5%;
+            margin-left: 5%;
+            margin-right: 5%;
+            color: black;
+        }
+
+        &.center {
+            width: fit-content;
+            margin-top: 5%;
+            margin-left: 5%;
+            margin-right: 5%;
+            color: black;
+        }
+
+        &.bold {
+            font-weight: bold;
+
+            &.full {
+                width: 100%;
+            }
+        }
+
+        &.normal {
+            font-weight: lighter;
+        }
+
+        .cal {
+            &.icon {
+
+                position: absolute;
+
+            }
+        }
+    }
+
+    .text {
+        &.red {
             color: red;
         }
-        &.center{
+
+        &.center {
             margin-left: 30%;
         }
     }
- 
-    h2{
-        text-align:center;
+
+    h2 {
+        text-align: center;
     }
-    .ui_button{
+
+    .ui_button {
         position: relative;
         margin-left: 43%;
         margin-top: 5%;
-        text-align:center;
+        text-align: center;
     }
-    input{
+
+    input {
         width: 100%;
-        &::placeholder{
-            text-align:center;
+
+        &::placeholder {
+            text-align: center;
         }
     }
-    select{
+
+    select {
         width: 100%;
     }
-    label{
+
+    label {
         text-align: left;
         font-weight: bold;
     }
-    .form-group{
+
+    .form-group {
         padding: 2%;
         padding-right: 5%;
     }
-    .d-inline-block{
+
+    .d-inline-block {
         color: black;
-       
+
     }
-    .ui{
-        &.button{
+
+    .ui {
+        &.button {
             margin: 1%;
-            &.schedule{
+
+            &.schedule {
                 position: relative;
                 align-content: center;
                 left: 45%;
-                
+
             }
-            &.show{
+
+            &.show {
                 position: relative;
                 align-content: center;
-                left:39%;
+                left: 39%;
                 margin-top: 3%;
-                &.aval{
+
+                &.aval {
                     left: 36%;
                 }
             }
-            &.top{
-                &.right{
+
+            &.top {
+                &.right {
                     position: absolute;
-                    top:0;
+                    top: 0;
                     right: 0;
-                    &.white{
+
+                    &.white {
                         color: white;
                     }
                 }
@@ -196,12 +251,14 @@ form {
         }
 
     }
-    p{
+
+    p {
         text-align: center;
         font-weight: bold;
     }
-    &.react{
-        &.select{
+
+    &.react {
+        &.select {
             color: black;
         }
     }
