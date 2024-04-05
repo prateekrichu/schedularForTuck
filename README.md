@@ -1,6 +1,4 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Getting Started with App
 
 ## Available Scripts
 
@@ -21,3 +19,4 @@ You may also see any lint errors in the console.
 ![availabilities](https://github.com/prateeksharma1809/schedularForTuck/assets/109249875/ef0aa57d-a33e-4ba1-9a40-d2cd7b91aa54)
 
 For more details visit: https://prateeksharma18.netlify.app/tccsched
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
